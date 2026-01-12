@@ -1,0 +1,26 @@
+{% extends "mobile/base.html" %}
+
+{% load static %}
+
+{% block title %}Список мобильных телефонов{% endblock %}
+
+{% block content %}
+<h2>Наши мобильные телефоны</h2>
+<div class="mobile-list">
+    {% for mobile in mobiles %}
+    <div class="mobile-card">
+        {% if mobile.image %}
+        <img src="{{ mobile.image.url }}" alt="{{ mobile.name }}">
+        {% else %}
+        <img src="{% static 'images/no-image.png' %}" alt="Нет изображения">
+        {% endif %}
+
+        <h3>{{ mobile.name }}</h3>
+        <p>Цена: {{ mobile.price }} ₽</p>
+        <a href="/mobiles/{{ mobile.id }}" class="btn">Подробнее</a>
+    </div>
+    {% empty %}
+    <p>Пока что нет доступных телефонов.</p>
+    {% endfor %}
+</div>
+{% endblock %}
