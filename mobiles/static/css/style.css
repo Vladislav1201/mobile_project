@@ -80,3 +80,44 @@ footer {
 .mobile-card .btn:hover {
     background: #0056b3;
 }
+
+/* Шапка: выравнивание и кнопки */
+header .container {
+    display: flex;
+    justify-content: space-between; /* меню слева, кнопки справа */
+    align-items: center;
+}
+
+header nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header .auth-buttons a {
+    color: #fff; /* такой же цвет, как у ссылок меню */
+    background: none; /* убираем фиолет */
+    border: none;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: normal;
+    padding: 0;
+}
+
+header .auth-buttons a:hover {
+    text-decoration: underline;
+}
+
+/* Футер: обычные ссылки */
+footer a {
+    color: #aaa; /* обычный цвет футера */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,185 @@
+{% extends "mobile/base.html" %}
+{% load static %}
+
+{% block title %}{{ mobile.title }}{% endblock %}
+
+{% block content %}
+<h2>{{ mobile.title }}</h2>
+
+<!-- Изображение -->
+{% if mobile.image %}
+<img src="{{ mobile.image.url }}" alt="{{ mobile.title }}" class="mobile-image">
+{% else %}
+<img src="{% static 'images/no-image.png' %}" alt="Нет изображения" class="mobile-image">
+{% endif %}
+
+<!-- Общая информация -->
+<h3>Общая информация</h3>
+<p>{{ mobile.description|linebreaks }}</p>
+<p>Цена: {{ mobile.price }} руб</p>
+
+<!-- Основная информация -->
+<h3>Основная информация</h3>
+<ul>
+    <li>Тип телефона: {{ mobile.type }}</li>
+    <li>Операционная система: {{ mobile.operating_system }}</li>
+    <li>Версия ОС на момент выхода: {{ mobile.os_version_at_release }}</li>
+    <li>Размер экрана (дюймы): {{ mobile.screen_size }}</li>
+    <li>Разрешение экрана: {{ mobile.screen_resolution }}</li>
+    <li>Технология экрана: {{ mobile.screen_technology }}</li>
+    <li>Частота обновления экрана: {{ mobile.refresh_rate }}</li>
+    <li>Оперативная память: {{ mobile.ram_size }}</li>
+    <li>Встроенная память: {{ mobile.storage_size }}</li>
+    <li>Основная камера (Мп): {{ mobile.main_camera_megapixels }}</li>
+    <li>Характеристики камеры: {{ mobile.camera_specs|linebreaks }}</li>
+    <li>Максимальное разрешение видео: {{ mobile.max_video_resolution }}</li>
+    <li>Быстрая зарядка: {{ mobile.fast_charging }}</li>
+    <li>Поддержка карты памяти: {{ mobile.memory_card_support }}</li>
+    <li>Количество SIM-карт: {{ mobile.sim_slots }}</li>
+    <li>Тип SIM-карты: {{ mobile.sim_type }}</li>
+</ul>
+
+<!-- Процессор блок -->
+<h3>Процессор</h3>
+<ul>
+    <li>Платформа: {{ mobile.platform }}</li>
+    <li>Модель процессора: {{ mobile.cpu_model }}</li>
+    <li>Количество ядер: {{ mobile.cpu_cores }}</li>
+    <li>Архитектура: {{ mobile.cpu_architecture }}</li>
+    <li>Техпроцесс: {{ mobile.process_technology }}</li>
+    <li>Графический процессор: {{ mobile.gpu_model }}</li>
+    <li>Модем: {{ mobile.modem }}</li>
+</ul>
+
+<!-- Конструкция блок -->
+<h3>Конструкция</h3>
+<ul>
+    <li>Конструкция корпуса: {{ mobile.body_construction }}</li>
+    <li>Стереодинамики: {{ mobile.stereo_speakers }}</li>
+    <li>Материал рамки: {{ mobile.frame_material }}</li>
+    <li>Материал задней крышки: {{ mobile.back_cover_material }}</li>
+    <li>Цвет рамки: {{ mobile.frame_color }}</li>
+    <li>Цвет задней крышки: {{ mobile.back_cover_color }}</li>
+    <li>Цвет фронтальной панели: {{ mobile.front_panel_color }}</li>
+    <li>Ударопрочность: {{ mobile.shockproof }}</li>
+    <li>Защита от воды и пыли: {{ mobile.water_dust_protection }}</li>
+    <li>Встроенные магниты: {{ mobile.built_in_magnets }}</li>
+    <li>Физическая клавиатура: {{ mobile.physical_keyboard }}</li>
+    <li>Сканер отпечатка пальца: {{ mobile.fingerprint_scanner }}</li>
+    <li>Разблокировка по лицу: {{ mobile.face_unlock }}</li>
+    <li>Особенности: {{ mobile.special_features|linebreaks }}</li>
+</ul>
+
+<!-- Размеры и вес -->
+<h3>Размеры и вес</h3>
+<ul>
+    <li>Длина (мм): {{ mobile.length }}</li>
+    <li>Ширина (мм): {{ mobile.width }}</li>
+    <li>Толщина (мм): {{ mobile.thickness }}</li>
+    <li>Вес (г): {{ mobile.weight }}</li>
+</ul>
+
+<!-- Экран -->
+<h3>Экран</h3>
+<ul>
+    <li>Количество отображаемых цветов: {{ mobile.screen_colors }}</li>
+    <li>Плотность пикселей (PPI): {{ mobile.screen_ppi }}</li>
+    <li>Соотношение сторон: {{ mobile.aspect_ratio }}</li>
+    <li>Типичная яркость (кд/м²): {{ mobile.brightness_typical }}</li>
+    <li>Пиковая яркость (кд/м²): {{ mobile.brightness_peak }}</li>
+    <li>Сенсорный экран: {{ mobile.touchscreen }}</li>
+    <li>Защита от царапин: {{ mobile.scratch_protection }}</li>
+    <li>Always-On Display: {{ mobile.always_on_display }}</li>
+    <li>Поддержка LTPO: {{ mobile.ltpo_support }}</li>
+</ul>
+
+<!-- Основная камера -->
+<h3>Основная камера</h3>
+<ul>
+    <li>Основная камера: {{ mobile.main_camera }}</li>
+    <li>Количество модулей камеры: {{ mobile.camera_modules_count }}</li>
+    <li>Модули камеры: {{ mobile.camera_modules|linebreaks }}</li>
+    <li>Вспышка: {{ mobile.flash }}</li>
+    <li>Автофокус: {{ mobile.autofocus }}</li>
+    <li>Оптическая стабилизация: {{ mobile.optical_stabilization }}</li>
+    <li>Оптический зум: {{ mobile.optical_zoom }}</li>
+    <li>Диафрагма основной камеры: {{ mobile.main_camera_aperture }}</li>
+    <li>Максимальный FPS видео: {{ mobile.max_fps }}</li>
+</ul>
+
+<!-- Фронтальная камера -->
+<h3>Фронтальная камера</h3>
+<ul>
+    <li>Фронтальная камера: {{ mobile.front_camera }}</li>
+    <li>Характеристики: {{ mobile.front_camera_specs|linebreaks }}</li>
+    <li>Расположение фронтальной камеры: {{ mobile.front_camera_position }}</li>
+    <li>Двойная фронтальная камера: {{ mobile.dual_front_camera }}</li>
+    <li>Автофокус фронтальной камеры: {{ mobile.front_autofocus }}</li>
+    <li>Вспышка фронтальной камеры: {{ mobile.front_flash }}</li>
+    <li>Диафрагма фронтальной камеры: {{ mobile.front_camera_aperture }}</li>
+    <li>Максимальное видео фронтальной камеры: {{ mobile.front_max_video_resolution }}</li>
+</ul>
+
+<!-- Датчики -->
+<h3>Датчики</h3>
+<ul>
+    <li>Акселерометр: {{ mobile.accelerometer }}</li>
+    <li>Гироскоп: {{ mobile.gyroscope }}</li>
+    <li>Датчик освещённости: {{ mobile.light_sensor }}</li>
+    <li>Датчик приближения: {{ mobile.proximity_sensor }}</li>
+    <li>Барометр: {{ mobile.barometer }}</li>
+    <li>Датчик пульса: {{ mobile.heart_rate_monitor }}</li>
+    <li>Датчик SpO₂: {{ mobile.spo2_sensor }}</li>
+</ul>
+
+<!-- Навигация -->
+<h3>Навигация</h3>
+<ul>
+    <li>GPS: {{ mobile.gps }}</li>
+    <li>ГЛОНАСС: {{ mobile.glonass }}</li>
+    <li>BeiDou: {{ mobile.beidou }}</li>
+    <li>Galileo: {{ mobile.galileo }}</li>
+</ul>
+
+<!-- Передача данных -->
+<h3>Передача данных</h3>
+<ul>
+    <li>EDGE: {{ mobile.edge }}</li>
+    <li>HSPA: {{ mobile.hspa }}</li>
+    <li>HSPA+: {{ mobile.hspa_plus }}</li>
+    <li>LTE: {{ mobile.lte }}</li>
+    <li>5G: {{ mobile.five_g }}</li>
+</ul>
+
+<!-- Интерфейсы -->
+<h3>Интерфейсы</h3>
+<ul>
+    <li>Bluetooth: {{ mobile.bluetooth }}</li>
+    <li>Аудиокодеки Bluetooth: {{ mobile.bluetooth_audio_codecs }}</li>
+    <li>Аудиоразъём 3.5 мм: {{ mobile.audio_jack }}</li>
+    <li>Wi-Fi: {{ mobile.wifi }}</li>
+    <li>Тип разъёма: {{ mobile.connector_type }}</li>
+    <li>NFC: {{ mobile.nfc }}</li>
+</ul>
+
+<!-- Аккумулятор -->
+<h3>Аккумулятор и время работы</h3>
+<ul>
+    <li>Тип аккумулятора: {{ mobile.battery_type }}</li>
+    <li>Ёмкость аккумулятора (мА·ч): {{ mobile.battery_capacity }}</li>
+    <li>Конструкция аккумулятора: {{ mobile.battery_design }}</li>
+    <li>Время воспроизведения видео: {{ mobile.max_video_playback_time }}</li>
+</ul>
+
+<!-- Комплектация -->
+<h3>Комплектация</h3>
+<ul>
+    <li>Комплектация: {{ mobile.package_contents|linebreaks }}</li>
+    <li>Чехол в комплекте: {{ mobile.case_included }}</li>
+    <li>Стилус в комплекте: {{ mobile.stylus_included }}</li>
+</ul>
+
+<!-- Контакты владельца -->
+<h3>Контакты владельца</h3>
+<p>{{ mobile.owner_contacts|linebreaks }}</p>
+{% endblock %}
