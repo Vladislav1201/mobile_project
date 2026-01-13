@@ -1,0 +1,17 @@
+{% extends "mobile/base.html" %}
+{% load static %}
+
+{% block title %}Редактировать {{ mobile.title }}{% endblock %}
+
+{% block content %}
+
+<h1>Вы действительно хотите удалить "{{ mobile.title }}" из каталога?</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <button>Да, удалить</button>
+    <a href="{% url 'mobiles:mobile_detail' mobile.id %}">Нет</a>
+    </form>
+
+
+{% endblock %}

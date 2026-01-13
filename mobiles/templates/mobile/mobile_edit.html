@@ -1,0 +1,16 @@
+{% extends "mobile/base.html" %}
+{% load static %}
+
+{% block title %}Редактировать {{ mobile.title }}{% endblock %}
+
+{% block content %}
+<h2>Редактировать {{ mobile.title }}</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Сохранить</button>
+</form>
+
+<a href="{% url 'mobiles:mobile_detail' mobile.id %}" class="btn btn-secondary mt-2">Отмена</a>
+{% endblock %}

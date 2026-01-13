@@ -171,7 +171,7 @@
     <li>Время воспроизведения видео: {{ mobile.max_video_playback_time }}</li>
 </ul>
 
-<!-- Комплектация -->
+
 <h3>Комплектация</h3>
 <ul>
     <li>Комплектация: {{ mobile.package_contents|linebreaks }}</li>
@@ -179,7 +179,13 @@
     <li>Стилус в комплекте: {{ mobile.stylus_included }}</li>
 </ul>
 
-<!-- Контакты владельца -->
 <h3>Контакты владельца</h3>
 <p>{{ mobile.owner_contacts|linebreaks }}</p>
+
+<!-- Кнопка редактирования -->
+{% if user.is_authenticated and user.is_owner %}
+    <a href="{% url 'mobiles:mobile_edit' mobile.id %}" class="btn btn-warning">Редактировать</a>
+    <a href="{% url 'mobiles:mobile_delete' mobile.id %}" class="btn btn-warning">Удалить</a>
+{% endif %}
+
 {% endblock %}

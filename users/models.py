@@ -6,6 +6,10 @@ class Role(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
+        if self.name == "owner":
+            return "Администратор"
+        if self.name == "buyer":
+            return "Пользователь"
         return self.name
 
 class CustomUserManager(UserManager):
@@ -32,7 +36,14 @@ class CustomUserManager(UserManager):
 
 class User(AbstractUser):
     role = models.ForeignKey(Role, null=False, blank=False, on_delete=models.PROTECT)
+    phone = models.CharField(max_length=20, blank=True, null=True)
     objects = CustomUserManager()
     REQUIRED_FIELDS = ['role', 'email']
+
+    def is_owner(self):
+        return self.role.name == "owner"
+
+    def is_buyer(self):
+        return self.role.name == "buyer"
 
 

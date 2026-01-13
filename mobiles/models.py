@@ -57,9 +57,9 @@ class Mobile(models.Model):
 
     memory_card_support = models.BooleanField(default=False, verbose_name='Поддержка карты памяти')
 
-    sim_slots = models.PositiveSmallIntegerField(choices=SimSlots.choices, blank=True, null=True, verbose_name='Количество SIM-карт')
+    sim_slots = models.CharField(max_length=1, blank=True, null=True, verbose_name='Количество SIM-карт')
 
-    sim_type = models.CharField(max_length=10,choices=SimType.choices, blank=True, null=True, verbose_name='Тип SIM-карты')
+    sim_type = models.CharField(max_length=10, choices=SimType.choices, blank=True, null=True, verbose_name='Тип SIM-карты')
 
     platform = models.CharField(max_length=50, choices=Platform.choices, blank=True, null=True, verbose_name='Платформа')
 
@@ -186,4 +186,5 @@ class Mobile(models.Model):
     def __str__(self):
         return self.title
 
-#makemigrations and after migration
+
+
