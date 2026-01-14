@@ -19,6 +19,34 @@
 {% endif %}
 
 <hr>
-<h3>Заказы</h3>
-<p>Здесь будут отображаться ваши заказы (пока пусто).</p>
+
+
+{% for order in user_orders %}
+<p>Ваши заказы:</p>
+    <p>Заказ #{{ order.id }} от {{ order.created_at }}</p>
+    <ul>
+        {% for item in order.items.all %}
+            <li>{{ item.mobile.title }} x {{ item.quantity }}</li>
+        {% endfor %}
+    </ul>
+{% empty %}
+
+{% endfor %}
+
+{% if user.is_owner %}
+<h3>Все заказы</h3>
+{% for order in all_orders %}
+    <p>Заказ #{{ order.id }} от {{ order.user.username }}</p>
+    <ul>
+        {% for item in order.items.all %}
+            <li>{{ item.mobile.title }} x {{ item.quantity }}</li>
+        {% endfor %}
+    </ul>
+{% empty %}
+    <p>Пока нет заказов</p>
+{% endfor %}
+{% endif %}
+
+
+
 {% endblock %}

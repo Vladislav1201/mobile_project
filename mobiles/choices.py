@@ -1,8 +1,10 @@
 from django.db import models
 
+
 class PhoneType(models.TextChoices):
     OLD_PHONE = 'old_phone', 'кнопочный телефон'
     SMART = 'smart', 'смартфон'
+
 
 class OperationSystem(models.TextChoices):
     ANDROID = 'android', 'Android'
@@ -14,6 +16,7 @@ class OperationSystem(models.TextChoices):
     NUCLEUS = 'nucleus', 'Nucleus'
     RTOS = 'rtos', 'RTOS'
 
+
 class ScreenTechnology(models.TextChoices):
     AMOLED = 'amoled', 'AMOLED'
     IPS = 'ips', 'IPS'
@@ -22,6 +25,7 @@ class ScreenTechnology(models.TextChoices):
     PLS = 'pls', 'PLS'
     STN = 'stn', 'STN'
 
+
 class RefreshRate(models.TextChoices):
     REFRESH_60 = 'refresh_60', '60'
     REFRESH_90 = 'refresh_90', '90'
@@ -29,6 +33,7 @@ class RefreshRate(models.TextChoices):
     REFRESH_144 = 'refresh_144', '144'
     REFRESH_165 = 'refresh_165', '165'
     REFRESH_185 = 'refresh_185', '185'
+
 
 class RamSize(models.TextChoices):
     RAM_32_MB = 'ram_32_mb', '32 Мб'
@@ -47,6 +52,7 @@ class RamSize(models.TextChoices):
     RAM_20_GB = 'ram_20_gb', '20 Гб'
     RAM_24_GB = 'ram_24_gb', '24 Гб'
 
+
 class StorageSize(models.TextChoices):
     STORAGE_800_KB = 'storage_800_kb', '800 Кб'
     STORAGE_4_GB = 'storage_4_GB', '4 Гб'
@@ -59,6 +65,7 @@ class StorageSize(models.TextChoices):
     STORAGE_512_GB = 'storage_512_GB', '512 Гб'
     STORAGE_1_TB = 'storage_1_tb', '1 Tб'
     STORAGE_2_TB = 'storage_2_tb', '2 Tб'
+
 
 class VideoResolution(models.TextChoices):
     RESOLUTION_1280_720 = 'resolution_1280_720', '1280×720 (30 кадров/с)'
@@ -78,15 +85,18 @@ class FastCharge(models.TextField):
     FAST_CHARGE_YES = 'fast_charge_yes', '+'
     FAST_CHARGE_NO = 'fast_charge_no', '-'
 
+
 class MemoryCard(models.TextChoices):
     MEMORY_CARD_YES = 'memory_card_yes', '+'
     MEMORY_CARD_NO = 'memory_card_no', '-'
+
 
 class SimSlots(models.TextChoices):
     SIM_SLOTS_1 = '1', '1 SIM'
     SIM_SLOTS_2 = '2', '2 SIM'
     SIM_SLOTS_3 = '3', '3 SIM'
     SIM_SLOTS_4 = '4', '4 SIM'
+
 
 class OSVersion(models.TextChoices):
     ANDROID_4_0 = 'android_4_0', 'Android 4.0 Ice Cream'
@@ -139,6 +149,7 @@ class OSVersion(models.TextChoices):
     IOS_18 = 'ios_18', 'iOS 18'
     IOS_26 = 'ios_26', 'iOS 26'
 
+
 class CameraMegapixels(models.TextChoices):
     MP_0_08 = '0.08', '0.08 Мп'
     MP_2 = '2', '2 Мп'
@@ -166,6 +177,7 @@ class SimType(models.TextChoices):
     ESIM = 'esim', 'eSIM'
     BOTH = 'both', 'SIM + eSIM'
 
+
 class Platform(models.TextChoices):
     APPLE = 'apple_a', 'Apple A'
     GOOGLE = 'google_tensor', 'Google Tensor'
@@ -180,6 +192,7 @@ class Platform(models.TextChoices):
     UNISOC = 'unisoc', 'UniSoC'
     UNISOC_TIGER = 'unisoc_tiger', 'UniSoC Tiger'
     XIAOMI = 'xiaomi_xring', 'Xiaomi Xring'
+
 
 class CpuCores(models.TextChoices):
     TWO = '2', '2'
@@ -204,6 +217,7 @@ class CpuCores(models.TextChoices):
     TEN_2_4_2_2 = '10_2_4_2_2', '10 (2+4+2+2)'
     TWELVE_2_6_4 = '12_2_6_4', '12 (2+6+4)'
 
+
 class ProcessTechnology(models.TextChoices):
     NM_3 = '3nm', '3 нм'
     NM_4 = '4nm', '4 нм'
@@ -219,12 +233,14 @@ class ProcessTechnology(models.TextChoices):
     NM_20 = '20nm', '20 нм'
     NM_28 = '28nm', '28 нм'
 
+
 class BodyConstruction(models.TextChoices):
     MONOBLOCK = 'monoblock', 'моноблок'
     FLIP = 'flip', 'со складным экраном (flip)'
     FOLD = 'fold', 'со складным экраном (fold)'
     TRIFOLD = 'trifold', 'со складным экраном (trifold)'
     FOLD_GENERIC = 'fold_generic', 'со складным экраном'
+
 
 class FrameMaterial(models.TextChoices):
     GENERIC = 'generic', 'материал рамки'
@@ -239,6 +255,7 @@ class FrameMaterial(models.TextChoices):
     TITANIUM = 'titanium', 'титан'
     FABRIC = 'fabric', 'тканевое покрытие'
 
+
 class BackCoverMaterial(models.TextChoices):
     CERAMIC = 'ceramic', 'керамика'
     LEATHER = 'leather', 'кожа'
@@ -247,6 +264,7 @@ class BackCoverMaterial(models.TextChoices):
     POLYMER_LEATHER = 'polymer_leather', 'полимерная кожа'
     GLASS = 'glass', 'стекло'
     FIBERGLASS = 'fiberglass', 'стекловолокно'
+
 
 class BackCoverColor(models.TextChoices):
     BEIGE = 'beige', 'бежевый'
@@ -283,6 +301,7 @@ class BackCoverColor(models.TextChoices):
     PURPLE = 'purple', 'фиолетовый'
     BLACK = 'black', 'черный'
 
+
 class OpticalZoom(models.TextChoices):
     ZOOM_2_5X = '2_5x', '2.5X'
     ZOOM_2_5X_PLUS = '2_5x_plus', '2.5X (на увеличение)'
@@ -318,6 +337,7 @@ class OpticalZoom(models.TextChoices):
     ZOOM_10X = '10x', '10X'
     ZOOM_10X_SPEC = '10x_spec', '10X (8X на увеличение, 2X на уменьшение)'
 
+
 class MainCameraAperture(models.TextChoices):
     F_1_4 = 'f_1_4', 'f/1.4'
     F_1_4_2_0 = 'f_1_4_2_0', 'f/1.4 - f/2.0'
@@ -351,6 +371,7 @@ class MainCameraAperture(models.TextChoices):
     F_2_8 = 'f_2_8', 'f/2.8'
     F_2_45 = 'f_2_45', 'f/2.45'
 
+
 class BluetoothAudioCodecs(models.TextChoices):
     AAC = 'aac', 'AAC'
     APTX = 'aptx', 'aptX'
@@ -364,6 +385,7 @@ class BluetoothAudioCodecs(models.TextChoices):
     LHDC = 'lhdc', 'LHDC'
     SBC = 'sbc', 'SBC'
 
+
 class ConnectorType(models.TextChoices):
     LIGHTNING = 'lightning', 'Lightning'
     MICROUSB_2_0 = 'microusb_2_0', 'microUSB 2.0'
@@ -374,45 +396,13 @@ class ConnectorType(models.TextChoices):
     USB_C_3_2_GEN1_PLUS_2_0 = 'usb_c_3_2_gen1_plus_2_0', 'USB Type-C 3.2 Gen1 + USB Type-C 2.0'
     USB_C_3_2_GEN2 = 'usb_c_3_2_gen2', 'USB Type-C 3.2 Gen2'
 
+
 class BatteryType(models.TextChoices):
     LI_ION = 'li_ion', 'Li-ion'
     LI_POL = 'li_pol', 'Li-pol'
     SI_C = 'si_c', 'Si-C'
 
+
 class BatteryDesign(models.TextChoices):
     REMOVABLE = 'removable', 'Съёмный'
     NON_REMOVABLE = 'non_removable', 'Несъёмный'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

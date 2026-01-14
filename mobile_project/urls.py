@@ -15,7 +15,8 @@ urlpatterns = [
     path('contacts/', kontakts, name='contacts'),
     path('about_us/', o_nas, name='about_us'),
     path('users/', include('users.urls', namespace='users')),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout')
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('korzina/', include('korzina.urls', namespace='korzina')),
 ]
 
 if settings.DEBUG:

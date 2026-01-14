@@ -1,7 +1,8 @@
 from django.urls import path
-from mobiles.views import mobiles_list, mobile_detail, politika_konf, uslovija_sogl, kontakts, o_nas, mobile_create, mobile_edit, mobile_delete
+from mobiles.views import mobiles_list, mobile_detail, politika_konf, uslovija_sogl, kontakts, o_nas, mobile_create, \
+    mobile_edit, mobile_delete
 
-app_name = 'mobiles'  # важно, чтобы namespace работал в project urls
+app_name = 'mobiles'
 
 urlpatterns = [
     path('', mobiles_list, name='mobiles_list'),
@@ -13,6 +14,5 @@ urlpatterns = [
     path('add/', mobile_create, name="mobile_create"),
     path('<int:mobile_id>/edit/', mobile_edit, name='mobile_edit'),
     path('<int:mobile_id>/delete/', mobile_delete, name='mobile_delete')
-
 
 ]

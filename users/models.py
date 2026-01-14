@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
 from django.core.exceptions import ObjectDoesNotExist
 
+
 class Role(models.Model):
     name = models.CharField(max_length=50)
 
@@ -11,6 +12,7 @@ class Role(models.Model):
         if self.name == "buyer":
             return "Пользователь"
         return self.name
+
 
 class CustomUserManager(UserManager):
     @staticmethod
@@ -45,5 +47,3 @@ class User(AbstractUser):
 
     def is_buyer(self):
         return self.role.name == "buyer"
-
-

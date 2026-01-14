@@ -1,0 +1,43 @@
+{% extends "mobile/base.html" %}
+{% block title %}Корзина{% endblock %}
+
+{% block content %}
+<h2>Ваша корзина</h2>
+
+{% if korzina %}
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Количество</th>
+        <th>Стоимость</th>
+    </tr>
+
+    {% for item in korzina %}
+    <tr>
+        <td>{{ item.mobile.title }}</td>
+
+        <td>
+            <div class="quantity-buttons">
+                <a href="{% url 'korzina:decrease' item.mobile.id %}" class="qty-btn">−</a>
+                <span class="qty-value">{{ item.quantity }}</span>
+
+                <a href="{% url 'korzina:increase' item.mobile.id %}" class="qty-btn">+</a>
+            </div>
+        </td>
+
+        <td>{{ item.item_total }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<form method="post" action="{% url 'korzina:create_order' %}">
+    {% csrf_token %}
+    <p><strong>Итого: {{ total_sum }}</strong>
+    <button type="submit">Оформить заказ</button>
+</form>
+
+{% else %}
+<p>Ваша корзина пуста</p>
+{% endif %}
+
+{% endblock %}

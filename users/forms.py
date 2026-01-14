@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from users.models import User, Role
 
+
 class SignUpForm(UserCreationForm):
     role = forms.ModelChoiceField(
         queryset=Role.objects.all(),
@@ -34,6 +35,7 @@ class SignUpForm(UserCreationForm):
 
         }
 
+
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = User
@@ -44,7 +46,6 @@ class UserProfileForm(forms.ModelForm):
             'last_name': 'Фамилия',
             'phone': 'Телефон',
             'email': 'Email',
-
 
         }
         widgets = {

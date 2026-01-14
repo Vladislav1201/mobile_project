@@ -188,4 +188,12 @@
     <a href="{% url 'mobiles:mobile_delete' mobile.id %}" class="btn btn-warning">Удалить</a>
 {% endif %}
 
+{% if user.is_authenticated and user.is_buyer %}
+    <form method="post" action="{% url 'korzina:add' mobile.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">
+            Добавить в карзину
+        </button>
+    </form>
+{% endif %}
 {% endblock %}
